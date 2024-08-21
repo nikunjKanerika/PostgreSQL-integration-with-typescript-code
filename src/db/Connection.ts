@@ -4,15 +4,18 @@ import {Client} from 'pg';
 
 dotenv.config();
 
-// const DB_USERNAME = process.env.DB_USERNAME;
-// const DB_PASSWORD = process.env.DB_PASSWORD;
+const DB_USERNAME = process.env.DB_USERNAME;
+const DB_PASSWORD = process.env.DB_PASSWORD;
+const DATABASE = process.env.DATABASE;
+const PORT = process.env.PORT
+const HOST = process.env.HOST
 
 export const client = new Client({
-    host: "localhost",
-    port: 5432,
-    user: "postgres",
-    password: "1234",
-    database: "userprofile"
+    host: HOST,
+    port: Number(PORT),
+    user: DB_USERNAME,
+    password: DB_PASSWORD,
+    database: DATABASE
 })
 
 export const Connection = () =>{
