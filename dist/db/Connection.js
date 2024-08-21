@@ -27,14 +27,17 @@ exports.Connection = exports.client = void 0;
 const dotenv = __importStar(require("dotenv"));
 const pg_1 = require("pg");
 dotenv.config();
-// const DB_USERNAME = process.env.DB_USERNAME;
-// const DB_PASSWORD = process.env.DB_PASSWORD;
+const DB_USERNAME = process.env.DB_USERNAME;
+const DB_PASSWORD = process.env.DB_PASSWORD;
+const DATABASE = process.env.DATABASE;
+const PORT = process.env.PORT;
+const HOST = process.env.HOST;
 exports.client = new pg_1.Client({
-    host: "localhost",
-    port: 5432,
-    user: "postgres",
-    password: "1234",
-    database: "userprofile"
+    host: HOST,
+    port: Number(PORT),
+    user: DB_USERNAME,
+    password: DB_PASSWORD,
+    database: DATABASE
 });
 const Connection = () => {
     exports.client.connect()
